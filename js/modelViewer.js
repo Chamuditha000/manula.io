@@ -23,7 +23,7 @@ function createViewer(canvasId, modelPath) {
     antialias: true
   });
 
-  renderer.setSize(canvas.clientWidth, 300);
+ renderer.setSize(canvas.offsetWidth, 300);
   renderer.setPixelRatio(window.devicePixelRatio);
 
   // Lighting
