@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: black;
+  color: white;
+}
+
+nav {
+  background: #111;
+  padding: 15px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.page-header {
+  text-align: center;
+  padding: 50px;
+}
+
+.card {
+  margin: 30px auto;
+  padding: 30px;
+  max-width: 900px;
+  background: #1a1a1a;
+  border-radius: 10px;
+}
