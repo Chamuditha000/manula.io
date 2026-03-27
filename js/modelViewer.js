@@ -43,7 +43,7 @@ if (canvas) {
   const loader = new THREE.GLTFLoader();
 
   loader.load(
-    "assets/models/accelerator.glb", // ✅ YOUR PATH HERE
+    "models/linac_4.glb", // ✅ YOUR PATH HERE
 
     function (gltf) {
       const model = gltf.scene;
