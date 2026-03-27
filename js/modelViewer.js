@@ -80,6 +80,6 @@ function createViewer(canvasId, modelPath) {
 
 // 🔥 LOAD 4 MODELS
 createViewer("model1", "models/linac_4.glb");
-createViewer("model2", "models/ps.glb");
-createViewer("model3", "models/psb_peiode_01.glb");
+createViewer("model2", "models/psb_peiode_01.glb"); // ✅ period1
+createViewer("model3", "models/ps.glb");            // ✅ PS
 createViewer("model4", "models/cms_detector.glb");
