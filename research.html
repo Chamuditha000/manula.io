@@ -46,6 +46,18 @@
     <li>3D Unity visualization</li>
   </ul>
 
+  <!-- 🔥 3D MODEL ADDED HERE -->
+  <div style="margin-top:20px;">
+    <h4>3D Accelerator Model (Interactive)</h4>
+
+    <canvas id="modelCanvas"></canvas>
+
+    <p style="opacity:0.7; font-size:14px;">
+      Interactive 3D representation of the accelerator structure used for
+      beam dynamics visualization. Drag to rotate and scroll to zoom.
+    </p>
+  </div>
+
   <h3>Image Processing for Measurement Systems</h3>
   <ul>
     <li>RGB-based concentration estimation</li>
@@ -53,7 +65,11 @@
   </ul>
 
 </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
 
+<script src="js/modelViewer.js"></script>
 <section class="card">
   <h2>Publications & Conferences</h2>
   <ul>
