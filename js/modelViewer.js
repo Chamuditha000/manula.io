@@ -59,6 +59,6 @@ function createViewer(canvasId, modelPath) {
 
 // 🔥 LOAD MODELS (TEST ONE BY ONE FIRST)
 createViewer("model1", "models/linac_4.glb");
-createViewer("model2", "models/psb_peiode_01.glb");
-createViewer("model3", "models/ps.glb");
-createViewer("model4", "models/cms_detector.glb");
+//createViewer("model2", "models/psb_peiode_01.glb");
+//createViewer("model3", "models/ps.glb");
+//createViewer("model4", "models/cms_detector.glb");
