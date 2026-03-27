@@ -1,10 +1,9 @@
 // js/modelViewer.js
 
-// Get canvas
-const canvas = document.getElementById("modelCanvas");
+function createViewer(canvasId, modelPath) {
 
-// Run only if canvas exists
-if (canvas) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
 
   // Scene
   const scene = new THREE.Scene();
@@ -13,7 +12,7 @@ if (canvas) {
   // Camera
   const camera = new THREE.PerspectiveCamera(
     75,
-    canvas.clientWidth / 400,
+    canvas.clientWidth / 300,
     0.1,
     1000
   );
@@ -24,73 +23,63 @@ if (canvas) {
     antialias: true
   });
 
-  renderer.setSize(canvas.clientWidth, 400);
+  renderer.setSize(canvas.clientWidth, 300);
   renderer.setPixelRatio(window.devicePixelRatio);
 
   // Lighting
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-  directionalLight.position.set(5, 5, 5);
-  scene.add(directionalLight);
+  const light1 = new THREE.DirectionalLight(0xffffff, 2);
+  light1.position.set(5, 5, 5);
+  scene.add(light1);
 
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-  scene.add(ambientLight);
+  const ambient = new THREE.AmbientLight(0xffffff, 0.6);
+  scene.add(ambient);
 
-  // Controls (mouse interaction)
+  // Controls
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
 
-  // Load 3D model
+  // Loader
   const loader = new THREE.GLTFLoader();
 
   loader.load(
-    "models/linac_4.glb", // ✅ YOUR PATH HERE
+    modelPath,
 
     function (gltf) {
       const model = gltf.scene;
 
-      // Center model (important)
+      // Auto center + scale
       const box = new THREE.Box3().setFromObject(model);
+      const size = box.getSize(new THREE.Vector3()).length();
       const center = box.getCenter(new THREE.Vector3());
+
       model.position.sub(center);
 
-      // Scale if needed
-      model.scale.set(1, 1, 1);
+      const scale = 2 / size;
+      model.scale.set(scale, scale, scale);
 
       scene.add(model);
     },
 
-    function (xhr) {
-      console.log((xhr.loaded / xhr.total * 100) + "% loaded");
-    },
+    undefined,
 
     function (error) {
       console.error("Error loading model:", error);
     }
   );
 
-  // Camera position
   camera.position.set(0, 1, 5);
 
-  // Animation loop
   function animate() {
     requestAnimationFrame(animate);
-
-    controls.update(); // smooth movement
-
+    controls.update();
     renderer.render(scene, camera);
   }
 
   animate();
-
-  // Responsive resize
-  window.addEventListener("resize", () => {
-    const width = canvas.clientWidth;
-    const height = 400;
-
-    renderer.setSize(width, height);
-
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-  });
-
 }
+
+// 🔥 LOAD 4 MODELS
+createViewer("model1", "models/linac_4.glb");
+createViewer("model2", "models/ps.glb");
+createViewer("model3", "models/psb_peiode_01.glb");
+createViewer("model4", "models/cms_detector.glb");
