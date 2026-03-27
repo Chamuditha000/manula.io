@@ -1,306 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chamuditha Dissanayake - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #f0f4f7, #d9e2ec);
-      color: #333;
-      transition: background 0.3s, color 0.3s;
-    }
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: linear-gradient(to right, #f0f4f7, #d9e2ec);
-    }
-    .toggle-btn {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-      background: #334e68;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .card {
-      background: white;
-      margin: 30px auto;
-      padding: 30px;
-      max-width: 1000px;
-      border-radius: 15px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      perspective: 1000px;
-    }
-    .card:hover {
-      transform: translateY(-10px) rotateX(3deg);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-    nav {
-      background: #334e68;
-      text-align: center;
-      padding: 15px 0;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 20px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #ffdd57; }
-    h2 {
-      color: #102a43;
-      border-bottom: 2px solid #334e68;
-      padding-bottom: 10px;
-    }
-    ul { list-style: none; padding: 0; }
-    ul li::before {
-      content: "✔";
-      margin-right: 10px;
-      color: #22a6b3;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #334e68;
-      color: white;
-    }
-    a { color: #0077b6; }
-    a:hover { text-decoration: underline; }
-
-    /* Dark mode styles */
-    body.dark-mode {
-      background: #121212;
-      color: #f4f4f4;
-    }
-    body.dark-mode .card {
-      background: #1e1e1e;
-    }
-    body.dark-mode nav, body.dark-mode footer {
-      background: #222;
-      color: #ccc;
-    }
-    body.dark-mode .toggle-btn {
-      background: #f4f4f4;
-      color: #333;
-    }
-
-    em {
-      font-style: italic;
-      color: #555;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Chamuditha Dissanayake</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-  <div id="particles-js"></div>
-  <button class="toggle-btn" onclick="toggleMode()">Toggle Light/Dark</button>
 
-  <div style="background-attachment: fixed; background-image: url('https://images.unsplash.com/photo-1531497865147-85c7908b10e6'); background-size: cover; background-position: center;">
-    <header style="background: rgba(0, 0, 0, 0.6); text-align: center; padding: 100px 20px; color: white;">
-      <h1>Chamuditha Dissanayake</h1>
-      <p>Physics Undergraduate | Computational Physics & Simulations | 3D Visualization</p>
-    </header>
-  </div>
+<nav>
+  <a href="index.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="research.html">Research</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header class="hero">
+  <h1>Chamuditha Dissanayake</h1>
+  <p>Computational Physics | Simulation | Semiconductor Systems</p>
+</header>
 
-  <section class="card" id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>
-      I am a final-year BSc (Hons) Physics undergraduate at the University of Ruhuna (2020–2025),
-      with a strong focus on computational physics, accelerator physics, and physics-based computer simulations.
-      I enjoy building interactive 3D environments in Unity to visualize real-world phenomena,
-      especially accelerator and beam dynamics, and I am interested in integrating image processing
-      and machine learning into experimental physics and educational tools.
-    </p>
-  </section>
+<!-- 3D Canvas -->
+<canvas id="bg"></canvas>
 
-  <section class="card" id="projects" data-aos="fade-up">
-    <h2>Research & Projects</h2>
-    <ul>
-      <li>
-        <strong>Interactive Accelerator Simulation Game (2025)</strong> –
-        Real-time 3D interface built with Unity and Blender to simulate proton acceleration
-        from LINAC4 through subsequent accelerator stages, inspired by the CERN accelerator complex.
-        <br>
-        <em>Related Certification:</em>
-        <a href="https://www.coursera.org/account/accomplishments/verify/L1PE3FZ3B8HI?utm_source=ios&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
-           target="_blank">
-          Introduction to Particle Accelerators – Lund University
-        </a>
-      </li>
+<section class="card">
+  <h2>About Me</h2>
+  <p>
+    I am a Physics graduate specializing in computational modeling and simulation-driven
+    analysis. My work focuses on building interactive systems to visualize complex
+    physical processes and semiconductor-related phenomena.
+  </p>
+</section>
 
-      <li>
-        <strong>Simulating Negative Hydrogen Ion Acceleration in LINAC-4 (2024)</strong> –
-        Educational 3D simulation platform presented at BCVSIP 2024, visualizing key technical aspects
-        of LINAC4 using Unity 3D.
-        <br>
-        <em>Related Certification:</em>
-        <a href="https://www.coursera.org/account/accomplishments/verify/L1PE3FZ3B8HI?utm_source=ios&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
-           target="_blank">
-          Introduction to Particle Accelerators – Lund University
-        </a>
-      </li>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/main.js"></script>
 
-      <li>
-        <strong>Image Processing Algorithm for Tea Concentration (2025)</strong> –
-        RGB-based regression model to estimate BOPF tea concentration; presented at the International Tea Symposium (InTSym100) 2025.
-      </li>
-
-      <li>
-        <strong>CFD Airflow over an Airfoil (2025)</strong> –
-        Computational fluid dynamics study using SimScale and ParaView to analyze pressure and velocity fields
-        for sustainable aviation design.
-        <br>
-        <em>Related Certification:</em>
-        <a href="https://www.coursera.org/account/accomplishments/verify/G35BXATHRKA9?utm_source=ios&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
-           target="_blank">
-          CFD Simulation Through a Centrifugal Pump – Coursera Project
-        </a>
-      </li>
-
-      <li>
-        <strong>Travelling Microscope – Design and Fabrication (2024)</strong> –
-        Low-cost, robust travelling microscope for undergraduate labs, designed in AutoCAD and fabricated with
-        focus on accuracy and durability.
-      </li>
-
-      <li>
-        <strong>Civilization of Makudians – 3D Mobile Game (2022)</strong> –
-        Third-person forest exploration and resource-management game, developed in Unity 3D with custom 3D assets from Blender.
-      </li>
-    </ul>
-  </section>
-
-  <section class="card" id="skills" data-aos="fade-up">
-    <h2>Skills</h2>
-    <ul>
-      <li><strong>Programming:</strong> Python, C#, Java</li>
-      <li><strong>Simulation & Visualization:</strong> Unity 3D, Blender, ParaView, SimScale, AutoCAD</li>
-      <li><strong>Design & Media:</strong> After Effects, Inkscape, GIMP, Audacity</li>
-      <li><strong>Physics:</strong> Computational physics, basic CFD, accelerator physics concepts, image analysis & regression modelling</li>
-    </ul>
-  </section>
-
-  <section class="card" id="certifications" data-aos="fade-up">
-    <h2>Certifications</h2>
-    <ul>
-      <li>
-        <a href="https://www.coursera.org/account/accomplishments/verify/L1PE3FZ3B8HI?utm_source=ios&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
-           target="_blank">
-          Introduction to Particle Accelerators – Lund University (2024)
-        </a>
-      </li>
-      <li>
-        <a href="https://www.coursera.org/account/accomplishments/verify/G35BXATHRKA9?utm_source=ios&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
-           target="_blank">
-          CFD Simulation Through a Centrifugal Pump – Coursera Project (2024)
-        </a>
-      </li>
-      <li>Applications of Nuclear Science and Technology – Sri Lanka Atomic Energy Board (2023)</li>
-    </ul>
-  </section>
-
-  <section class="card" id="experience" data-aos="fade-up">
-    <h2>Experience & Leadership</h2>
-    <p>
-      <strong>Internship – National Cancer Institute, Maharagama (2024)</strong><br/>
-      Hands-on exposure to medical physics, including cancer treatment machines, nuclear medicine workflows,
-      treatment planning, radiation safety, and quality assurance procedures.
-    </p>
-    <p>
-      <strong>Organizing Committee – Stellar Night 2.0 (2024)</strong><br/>
-      Supported planning and execution of an astronomy outreach event hosted by the Physics Society of the University of Ruhuna.
-    </p>
-    <p>
-      <strong>Organizing Committee – Solar Observation Session (2023)</strong><br/>
-      Assisted with logistics, safety procedures, and student engagement during solar viewing sessions.
-    </p>
-    <p>
-      <strong>Faculty Carrom Captain – University of Ruhuna (2023)</strong><br/>
-      Led the faculty team, coordinated practices and events, and encouraged student participation.
-    </p>
-  </section>
-
-  <section class="card" id="education" data-aos="fade-up">
-    <h2>Education</h2>
-    <p><strong>BSc (Hons) in Physics</strong> – University of Ruhuna, Sri Lanka (2020–2025)</p>
-    <p>Overall GPA: <strong>3.65 / 4.00</strong> &nbsp; | &nbsp; Physics Special GPA: <strong>3.71 / 4.00</strong></p>
-    <p>
-      Key subjects: Computational Physics, Electromagnetism, Solid State Physics, Quantum Physics,
-      Special Relativity, Nuclear and Particle Physics, Astronomy and Cosmology.
-    </p>
-  </section>
-
-  <section class="card" id="contact" data-aos="fade-up">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:manuladissanayake41@gmail.com">manuladissanayake41@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/Chamuditha000" target="_blank">github.com/Chamuditha000</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/manula-dissa-45920b15b" target="_blank">linkedin.com/in/manula-dissa-45920b15b</a></p>
-  </section>
-
-  <footer>
-    <p>© 2025 Chamuditha Dissanayake. All rights reserved.</p>
-  </footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 80 },
-        color: { value: "#334e68" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5 },
-        size: { value: 3 },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#334e68",
-          opacity: 0.4,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 3
-        }
-      },
-      interactivity: {
-        events: {
-          onhover: {
-            enable: true,
-            mode: "repulse"
-          }
-        }
-      }
-    });
-    function toggleMode() {
-      document.body.classList.toggle("dark-mode");
-    }
-  </script>
 </body>
 </html>
